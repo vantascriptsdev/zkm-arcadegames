@@ -1,0 +1,240 @@
+:root {
+  --font-ui: 'Inter', system-ui, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, monospace;
+  --font-display: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-display: 700;
+
+  /* using container-height units instead of vh this time for the dui frame!!! */
+
+  --fs-meta: clamp(9px, 0.93cqh, 20px);
+  --fs-label: clamp(10px, 1.02cqh, 22px);
+  --fs-nav: clamp(10px, 1.11cqh, 24px);
+  --fs-chip: clamp(11px, 1.2cqh, 26px);
+  --fs-tick: clamp(12px, 1.3cqh, 28px);
+  --fs-slot: clamp(13px, 1.48cqh, 32px);
+
+  --fs-coord: clamp(18px, 2.9cqh, 62px);
+
+  --fs-stat-hero: clamp(28px, 5.6cqh, 120px);
+
+  --fs-inline-stat: 1.76cqh;
+  --fs-stat-sm: 2.04cqh;
+  --fs-stat: 2.22cqh;
+  --fs-stat-lg: 2.41cqh;
+  --fs-guess: 2.78cqh;
+  --fs-bet: 2.78cqh;
+  --fs-card-rank: 4.81cqh;
+  --fs-card-suit-sm: 2.41cqh;
+  --fs-card-suit-lg: 9.63cqh;
+
+  --fs-hero-title: clamp(80px, min(18.1cqh, 13cqw),392px);
+  --fs-hero-value: clamp(96px, min(21.5cqh, 15cqw), 464px);
+  --fs-hero-resolved: clamp(84px, min(19.1cqh, 13cqw), 412px);
+  --fs-hero-plinko: clamp(44px, min(8cqh, 5.6cqw), 172px);
+  --fs-hero-hol: clamp(52px, min(10.2cqh, 7cqw), 220px);
+  --fs-hero-hol-resolved: clamp(58px, min(12.2cqh, 8cqw), 264px);
+  --fs-hero-mines: clamp(34px, min(6.3cqh, 3.6cqw), 176px);
+  --fs-hero-mines-value: clamp(38px, min(7.8cqh, 4.4cqw), 218px);
+  --fs-hero-mines-resolved: clamp(36px, min(7.4cqh, 4.2cqw), 210px);
+
+  --lh-hero: 0.82;
+  --lh-hero-loose: 0.84;
+  --lh-title: 0.86;
+  --lh-plinko: 0.9;
+
+  --ls-keycap: 0.04em;
+  --ls-caps: 0.14em;
+  --ls-data: 0.01em;
+  --ls-display: -0.02em;
+  --ls-display-tight: -0.01em;
+
+  --fs-data-scale: 0.94;
+
+  --sp-1: 1px;
+  --sp-2: 2px;
+  --sp-6: 0.56cqh;
+  --sp-8: 0.74cqh;
+  --sp-10: 0.93cqh;
+  --sp-12: 1.11cqh;
+  --sp-14: 1.3cqh;
+  --sp-16: 1.48cqh;
+  --sp-18: 1.67cqh;
+  --sp-20: 1.85cqh;
+  --sp-22: 2.04cqh;
+  --sp-24: 2.22cqh;
+  --sp-26: 2.41cqh;
+  --sp-28: 2.59cqh;
+  --sp-30: 2.78cqh;
+  --sp-32: 2.96cqh;
+  --sp-34: 3.15cqh;
+  --sp-38: 3.52cqh;
+  --sp-44: 4.07cqh;
+  --sp-48: 4.44cqh;
+  --sp-64: 5.93cqh;
+  --sp-72: 6.67cqh;
+  --sp-96: 8.89cqh;
+
+  --pad-screen: var(--sp-44) var(--sp-64) var(--sp-38);
+  --rail-width: clamp(220px, min(27.4cqh, 15.4cqw), 592px);
+  --rail-width-narrow: clamp(190px, min(23.1cqh, 13cqw), 500px);
+  --board-width: clamp(380px, min(75.6cqh, 51.2cqw), 1200px);
+  --curve-height: clamp(180px, 46cqh, 940px);
+  --curve-head-size: clamp(7px, 0.93cqh, 20px);
+
+  --peg-size: clamp(4px, 0.46cqh, 10px);
+  --ball-size: clamp(10px, 1.34cqh, 29px);
+
+  --tile-radius: clamp(4px, 0.74cqh, 16px);
+  --tile-gap: clamp(3px, 0.65cqh, 14px);
+  --gem-size: 64%;
+  --bomb-size: 56%;
+  --bomb-hit-size: 74%;
+  --fs-bomb-count: clamp(20px, 3.15cqh, 68px);
+  --bomb-tick-height: clamp(12px, 1.85cqh, 40px);
+
+  --ink: #fff;
+  --surface-1: rgba(255, 255, 255, 0.04);
+  --surface-2: rgba(255, 255, 255, 0.05);
+  --surface-3: rgba(255, 255, 255, 0.06);
+  --surface-4: rgba(255, 255, 255, 0.07);
+  --surface-5: rgba(255, 255, 255, 0.085);
+  --surface-6: rgba(255, 255, 255, 0.11);
+  --divider: rgba(255, 255, 255, 0.07);
+  --track: rgba(255, 255, 255, 0.16);
+  --peg: rgba(255, 255, 255, 0.4);
+  --peg-lit: rgba(255, 255, 255, 0.95);
+
+  --c-win: #6bc48c;
+  --c-loss: #d9645e;
+  --c-win-glow: rgba(107, 196, 140, 0.5);
+  --c-loss-glow: rgba(217, 100, 94, 0.5);
+
+  --c-delete: #e35449;
+  --c-delete-ink: #2a0705;
+  --c-delete-tint: rgba(227, 84, 73, 0.1);
+  --c-delete-edge: rgba(227, 84, 73, 0.18);
+
+  --o-meta: 0.28;
+  --o-footer: 0.32;
+  --o-hint: 0.35;
+  --o-balance: 0.4;
+  --o-muted: 0.45;
+  --o-body: 0.5;
+  --o-label: 0.55;
+  --o-nav-off: 0.3;
+  --o-nav-on: 0.9;
+  --o-tick: 0.62;
+
+  --card-face: #ece6d8;
+  --card-ink: #17130a;
+  --card-ink-red: #a8382c;
+  --card-radius: clamp(6px, 0.74cqh, 16px);
+  --card-width: clamp(200px, 29.4cqh, 636px);
+
+  --dur-instant: 0.09s;
+  --dur-fast: 0.12s;
+  --dur-deal: 0.14s;
+  --dur-resolve: 0.16s;
+  --dur-screen: 0.18s;
+  --dur-peg-pulse: 0.15s;
+  --dur-bucket-flash: 0.42s;
+  --dur-head-burst: 0.5s;
+  --dur-payout-float: 1.5s;
+  --dur-crash-hold: 2s;
+  --ease-out: ease-out;
+  --ease-pop: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --accent: #72d3f4;
+  --on-accent: #04161e;
+  --hero-ink: #f2f7f9;
+  --resolved-ink: #e8edef;
+  --trace-ink: #98a2a6;
+  --trace-fill: #8d979b;
+  --accent-tint: rgba(114, 211, 244, 0.16);
+  --accent-bright: #a7e6fb;
+}
+
+.theme-crash {
+  --accent: #72d3f4;
+  --on-accent: #04161e;
+  --hero-ink: #f2f7f9;
+  --resolved-ink: #e8edef;
+  --accent-tint: rgba(114, 211, 244, 0.16);
+  --accent-bright: #a7e6fb;
+  --climb-cool: #72d3f4;
+  --climb-cool-glow: rgba(114, 211, 244, 0.5);
+  --climb-warm: #f7c95c;
+  --climb-warm-glow: rgba(247, 201, 92, 0.5);
+  --climb-hot: #ff8f4d;
+  --climb-hot-glow: rgba(255, 143, 77, 0.5);
+  --curve-ink: var(--climb-cool);
+  --curve-glow: var(--climb-cool-glow);
+  --backdrop: radial-gradient(
+    115% 85% at 74% 12%,
+    #16404f 0%,
+    #0a222e 34%,
+    #051016 72%,
+    #040c11 100%
+  );
+}
+
+.theme-plinko {
+  --accent: #a78bfa;
+  --on-accent: #150b2b;
+  --hero-ink: #f1eefa;
+  --resolved-ink: #eceaf3;
+  --accent-tint: rgba(167, 139, 250, 0.16);
+  --accent-bright: #c4b1ff;
+  --ball-glow: rgba(196, 177, 255, 0.6);
+  --backdrop: radial-gradient(
+    110% 80% at 30% 8%,
+    #2a1c4d 0%,
+    #170f2c 36%,
+    #0a0714 74%,
+    #080611 100%
+  );
+}
+
+.theme-mines {
+  --accent: #5ddc9a;
+  --on-accent: #04180e;
+  --hero-ink: #eef7f1;
+  --resolved-ink: #eef7f1;
+  --accent-tint: rgba(93, 220, 154, 0.15);
+  --accent-bright: #8ae9b8;
+  --gem-tint: rgba(93, 220, 154, 0.15);
+  --bomb-ink: #e35449;
+  --bomb-tint: rgba(227, 84, 73, 0.13);
+  --bomb-ring: rgba(227, 84, 73, 0.35);
+  --bomb-glow: rgba(227, 84, 73, 0.5);
+  --tile-face: rgba(255, 255, 255, 0.06);
+  --tile-face-hover: rgba(255, 255, 255, 0.13);
+  --tile-spent: rgba(255, 255, 255, 0.04);
+  --backdrop: radial-gradient(
+    112% 82% at 26% 10%,
+    #123f2b 0%,
+    #0a2418 34%,
+    #051009 74%,
+    #040d08 100%
+  );
+}
+
+.theme-hol {
+  --accent: #f0b429;
+  --on-accent: #1c1403;
+  --hero-ink: #f7f2e6;
+  --resolved-ink: #efeade;
+  --accent-tint: rgba(240, 180, 41, 0.14);
+  --accent-bright: #f0b429;
+  --backdrop: radial-gradient(
+    105% 80% at 22% 14%,
+    #40320e 0%,
+    #241b08 34%,
+    #120e05 74%,
+    #100c04 100%
+  );
+}
