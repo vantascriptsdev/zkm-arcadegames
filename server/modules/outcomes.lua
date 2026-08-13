@@ -124,16 +124,28 @@ local function createPlinko(risk)
     return { path = path, slot = slot, multiplier = payouts[slot + 1] }
 end
 
+local OUTCOME_CREATORS <const> = {
+    ["crash"] = createCrash,
+    ["hol"] = createHol,
+    ["plinko"] = function(risk)
+        return createPlinko(risk)
+    end,
+    ["mines"] = function(bombs)
+        return createMines(bombs)
+    end
+}
+
 ---@param game ArcadeGameId
 ---@param risk? ArcadeRiskLevel plinko only
 ---@param bombs? integer mines only
 ---@return ArcadeOutcome?
 ---@return ArcadeBetError?
 function Outcomes.create(game, risk, bombs)
-    if game == "crash" then return createCrash() end
-    if game == "hol" then return createHol() end
-    if game == "plinko" then return createPlinko(risk) end
-    if game == "mines" then return createMines(bombs) end
+    local createOutcome = OUTCOME_CREATORS[game]
+    if createOutcome then
+        local param = game == "plinko" and risk or (game == "mines" and bombs or nil)
+        return createOutcome(param)
+    end
 
     return nil
 end
