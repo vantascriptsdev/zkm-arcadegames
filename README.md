@@ -31,11 +31,11 @@ Any of them can be turned off in the config if you only want a couple.
 1. Drop the resource in as `zkm-arcadegames`.
 2. `ensure zkm-arcadegames` after ox_lib and oxmysql in your server.cfg.
 3. The machine table creates itself from `sql/schema.sql` on first start, nothing to import manually.
-4. Grant yourself the `zkm_arcade.admin` ace and run `/arcademachines` in-game to place your first cabinet.
+4. Grant yourself the `zkm_arcade.admin` ace and run `/arcadeadmin` in-game to place your first cabinet.
 
 ## Placement tool
 
-`/arcademachines` opens a manager for creating, moving, and deleting cabinets. While placing one: WASD nudges it, Q/R changes height, Z/C rotates, F snaps to the ground, M drags it to wherever you're looking, G cycles the game, X cycles the step size, and Enter/Esc confirm or cancel.
+`/arcadeadmin` opens a manager for creating, moving, and deleting cabinets. While placing one: WASD nudges it, Q/R changes height, Z/C rotates, F snaps to the ground, M drags it to wherever you're looking, G cycles the game, X cycles the step size, and Enter/Esc confirm or cancel.
 
 ## Configuration
 
