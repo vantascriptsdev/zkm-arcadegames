@@ -46,14 +46,6 @@ local function startAnim(instance)
     TaskPlayAnim(ped, clip.dict, clip.clip, ANIM_BLEND, -ANIM_BLEND, -1, ANIM_LOOP, 0.0, false, false, false)
 end
 
-local function stopAnim()
-    if not anim then return end
-
-    StopAnimTask(cache.ped, anim.dict, anim.clip, ANIM_BLEND)
-
-    anim = nil
-end
-
 local function cleanup(blend)
     SetNuiFocus(false, false)
     SetNuiFocusKeepInput(false)
@@ -68,7 +60,11 @@ local function cleanup(blend)
     if pedChanged then
         local ped = cache.ped
 
-        stopAnim()
+        if anim then
+            StopAnimTask(ped, anim.dict, anim.clip, ANIM_BLEND)
+            anim = nil
+        end
+
         FreezeEntityPosition(ped, false)
         SetEntityLocallyVisible(ped)
         DisplayRadar(true)

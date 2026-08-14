@@ -356,12 +356,6 @@ AddEventHandler("playerDropped", function()
     Rounds[src] = nil
 end)
 
-local function isSessionAlive(machineId, lock)
-    local machine = Registry[machineId]
-
-    return machine ~= nil and isNearby(lock.source, machine)
-end
-
 Citizen.CreateThread(function()
     local sweepMs = LockConfig.sweepMs
     local timeoutMs = LockConfig.timeoutMs
@@ -372,7 +366,9 @@ Citizen.CreateThread(function()
         local now = GetGameTimer()
 
         for machineId, lock in pairs(Locks) do
-            if isSessionAlive(machineId, lock) then
+            local machine = Registry[machineId]
+
+            if machine and isNearby(lock.source, machine) then
                 lock.staleSince = nil
             elseif not lock.staleSince then
                 lock.staleSince = now

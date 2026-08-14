@@ -74,7 +74,7 @@ local function fitDistance(width, height)
     return math.max(CamConfig.minDistance, byHeight, byWidth)
 end
 
-function Camera.frame(entity)
+local function getFrame(entity)
     local centre, right, up, normal, width, height = screenBasis()
     local distance = fitDistance(width, height)
 
@@ -119,7 +119,7 @@ function Camera.screenRect(entity)
 end
 
 function Camera.enter(entity)
-    local frame = Camera.frame(entity)
+    local frame = getFrame(entity)
 
     Camera.destroy()
 

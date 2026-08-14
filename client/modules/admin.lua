@@ -112,10 +112,6 @@ local function checkValidity()
     end
 end
 
-local function pushTransform()
-    SendNUIMessage({ action = "placementTransform", x = x, y = y, z = z, heading = heading })
-end
-
 local function pushState(fields)
     fields.action = "placementState"
     SendNUIMessage(fields)
@@ -134,7 +130,7 @@ local function applyTransform()
     local wasValid = valid
 
     checkValidity()
-    pushTransform()
+    SendNUIMessage({ action = "placementTransform", x = x, y = y, z = z, heading = heading })
 
     if valid ~= wasValid then pushState({ valid = valid, reason = reason }) end
 end
@@ -308,7 +304,7 @@ local function startPlacement(newMode, data)
                 for _, action in pairs(Held) do action() end
             end
 
-            Citizen.Wait(PlacementConfig.repeatMs)
+            Citizen.Wait(100)
         end
     end)
 
