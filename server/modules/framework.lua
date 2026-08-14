@@ -22,7 +22,7 @@ local function awaitResource(resource)
 
     while GetResourceState(resource) ~= "started" do
         if GetGameTimer() > deadline then
-            lib.print.error(("%s did not start within 10s, the arcade will refuse every bet")
+            lib.print.error(("%s did not start within 10s, the arcade will run in standalone mode (free play, no economy)")
                 :format(resource))
             return false
         end
@@ -46,7 +46,19 @@ elseif Config.framework == "qbx" or (Config.framework == "auto" and GetResourceS
         Core = exports.qbx_core
     end
 else
-    lib.print.warn("No supported framework detected, the arcade will refuse every bet.")
+    lib.print.warn("No supported framework detected, the arcade will run in standalone mode (free play, no economy).")
+end
+
+Framework.standalone = active == "none"
+
+local STANDALONE_BALANCE = 0
+
+for game in pairs(Config.games) do
+    local settings = Config.gameSettings[game]
+
+    if settings and settings.maxBet and settings.maxBet > STANDALONE_BALANCE then
+        STANDALONE_BALANCE = settings.maxBet
+    end
 end
 
 local function getPlayer(source)
@@ -59,6 +71,8 @@ end
 ---@param source integer
 ---@return integer
 function Framework.getBalance(source)
+    if active == "none" then return STANDALONE_BALANCE end
+
     if active == "esx" then
         local player = getPlayer(source)
         if not player then return 0 end
@@ -81,6 +95,8 @@ end
 ---@param amount integer
 ---@return boolean
 function Framework.removeMoney(source, amount)
+    if active == "none" then return true end
+
     if active == "esx" then
         local player = getPlayer(source)
         if not player then return false end
@@ -99,6 +115,8 @@ end
 ---@param amount integer
 ---@return boolean
 function Framework.addMoney(source, amount)
+    if active == "none" then return true end
+
     if active == "esx" then
         local player = getPlayer(source)
         if not player then return false end
