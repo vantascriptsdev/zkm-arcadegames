@@ -26,8 +26,8 @@ Config.gameSettings = {
     -- & how this works is it basically re-calculates the odds based on this (takes a cut from it)
     houseEdge = 0.95,
     crash = {
-        minBet = 100,
-        maxBet = 10000,
+        minBet = 1000,
+        maxBet = 100000,
         maxMultiplier = 40.0,
         growthPerTick = 0.0075, -- multiplier climbs 0.75% per tick, works out around 1.16x a second
         tickMs = 50, -- how often it ticks up, lower is smoother but the whole thing runs faster
@@ -35,8 +35,8 @@ Config.gameSettings = {
         claimGraceMs = 1000, -- lag forgiveness on cashout so people with ping still get paid
     },
     plinko = {
-        minBet = 250,
-        maxBet = 25000,
+        minBet = 1000,
+        maxBet = 100000,
         maxMultiplier = 170.0,
         -- board is a fixed 12 rows, each array needs exactly 13 numbers
         payouts = {
@@ -46,14 +46,14 @@ Config.gameSettings = {
         },
     },
     hol = {
-        minBet = 100,
-        maxBet = 5000,
+        minBet = 1000,
+        maxBet = 100000,
         maxMultiplier = 10.0,
         maxRounds = 12, -- max amount of guesses
     },
     mines = {
-        minBet = 100,
-        maxBet = 10000,
+        minBet = 1000,
+        maxBet = 100000,
         maxMultiplier = 2500.0, -- if you hit all 25 diamonds you get a huge payout, you can cap it here
         tiles = 25, -- board size, keep it a square number so the grid stays even (25 is 5x5)
         minBombs = 1,
