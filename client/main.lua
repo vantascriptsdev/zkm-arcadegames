@@ -17,6 +17,7 @@ local function addInteraction(instance)
     end)
 end
 
+-- this has to be done here because play.lua cannot be imported in machines.lua (because of a circular require)
 Machines.onEnter(addInteraction)
 Machines.onExit(Target.remove)
 
