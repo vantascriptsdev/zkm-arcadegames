@@ -143,37 +143,29 @@ local function stepAmount()
     return PlacementConfig.steps[stepIndex]
 end
 
-local function rotateAmount()
-    return PlacementConfig.rotateSteps[stepIndex]
-end
+local NUDGE_CREATORS <const> = {
+    ["forward"] = function(sign)
+        local dir = forward(heading)
 
-local function nudgeForward(sign)
-    local dir = forward(heading)
+        x = x + dir.x * sign * stepAmount()
+        y = y + dir.y * sign * stepAmount()
+    end,
+    ["right"] = function(sign)
+        local dir = forward(heading - 90.0)
 
-    x = x + dir.x * sign * stepAmount()
-    y = y + dir.y * sign * stepAmount()
+        x = x + dir.x * sign * stepAmount()
+        y = y + dir.y * sign * stepAmount()
+    end,
+    ["height"] = function(sign)
+        z = z + sign * stepAmount()
+    end,
+    ["rotate"] = function(sign)
+        heading = (heading + sign * PlacementConfig.rotateSteps[stepIndex]) % 360.0
+    end,
+}
 
-    applyTransform()
-end
-
-local function nudgeRight(sign)
-    local dir = forward(heading - 90.0)
-
-    x = x + dir.x * sign * stepAmount()
-    y = y + dir.y * sign * stepAmount()
-
-    applyTransform()
-end
-
-local function nudgeHeight(sign)
-    z = z + sign * stepAmount()
-
-    applyTransform()
-end
-
-local function rotate(sign)
-    heading = (heading + sign * rotateAmount()) % 360.0
-
+local function nudge(axis, sign)
+    NUDGE_CREATORS[axis](sign)
     applyTransform()
 end
 
@@ -417,18 +409,18 @@ local function repeatable(name, description, defaultKey, action)
 end
 
 local NUDGE_KEYBINDS <const> = {
-    { name = "zkm_arcade_admin_forward",  description = "Machine creator: nudge forward", defaultKey = "W", action = function() nudgeForward(1) end },
-    { name = "zkm_arcade_admin_back",     description = "Machine creator: nudge back",    defaultKey = "S", action = function() nudgeForward(-1) end },
-    { name = "zkm_arcade_admin_left",     description = "Machine creator: nudge left",    defaultKey = "A", action = function() nudgeRight(-1) end },
-    { name = "zkm_arcade_admin_right",    description = "Machine creator: nudge right",   defaultKey = "D", action = function() nudgeRight(1) end },
-    { name = "zkm_arcade_admin_down",     description = "Machine creator: lower height",  defaultKey = "Q", action = function() nudgeHeight(-1) end },
-    { name = "zkm_arcade_admin_up",       description = "Machine creator: raise height",  defaultKey = "R", action = function() nudgeHeight(1) end },
-    { name = "zkm_arcade_admin_rotleft",  description = "Machine creator: rotate left",   defaultKey = "Z", action = function() rotate(-1) end },
-    { name = "zkm_arcade_admin_rotright", description = "Machine creator: rotate right",  defaultKey = "C", action = function() rotate(1) end },
+    { name = "zkm_arcade_admin_forward",  description = "Machine creator: nudge forward", defaultKey = "W", axis = "forward", sign = 1 },
+    { name = "zkm_arcade_admin_back",     description = "Machine creator: nudge back",    defaultKey = "S", axis = "forward", sign = -1 },
+    { name = "zkm_arcade_admin_left",     description = "Machine creator: nudge left",    defaultKey = "A", axis = "right",   sign = -1 },
+    { name = "zkm_arcade_admin_right",    description = "Machine creator: nudge right",   defaultKey = "D", axis = "right",   sign = 1 },
+    { name = "zkm_arcade_admin_down",     description = "Machine creator: lower height",  defaultKey = "Q", axis = "height",  sign = -1 },
+    { name = "zkm_arcade_admin_up",       description = "Machine creator: raise height",  defaultKey = "R", axis = "height",  sign = 1 },
+    { name = "zkm_arcade_admin_rotleft",  description = "Machine creator: rotate left",   defaultKey = "Z", axis = "rotate",  sign = -1 },
+    { name = "zkm_arcade_admin_rotright", description = "Machine creator: rotate right",  defaultKey = "C", axis = "rotate",  sign = 1 },
 }
 
 for _, bind in ipairs(NUDGE_KEYBINDS) do
-    repeatable(bind.name, bind.description, bind.defaultKey, bind.action)
+    repeatable(bind.name, bind.description, bind.defaultKey, function() nudge(bind.axis, bind.sign) end)
 end
 
 lib.addKeybind({
