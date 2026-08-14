@@ -96,7 +96,7 @@ Config.anim = {
 -- keeps two people off the same machine, and stops anyone alt f4ing mid round to dodge a loss
 Config.lock = {
     timeoutMs = 30000, -- the server has to see the player gone from the machine for this long before it frees the machine
-    sweepMs = 10000, -- how often the server goes looking for dead sessions
+    sweepMs = 20000, -- how often the server goes looking for dead sessions
     nuiReadyTimeoutMs = 8000, -- screen doesn't answer in this long, boot the player out with an error
     maxDistance = 5.0, -- you have to be this close in meters to claim a machine
 }
@@ -109,7 +109,6 @@ Config.admin = {
         steps = { 0.05, 0.1, 0.5, 1.0 },
         rotateSteps = { 0.5, 1.0, 5.0, 15.0 },
         minDistance = 1.0, -- minimum distance to the closest arcade machine
-        repeatMs = 120,
     },
 }
 
