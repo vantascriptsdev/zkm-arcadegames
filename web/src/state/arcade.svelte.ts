@@ -18,8 +18,6 @@ import { PlinkoEngine, RISK_LEVELS } from "./plinko.svelte";
 import { HolEngine } from "./hol.svelte";
 import { MinesEngine } from "./mines.svelte";
 
-const HEARTBEAT_INTERVAL_MS = 2000;
-
 const BET_PUBLISH_INTERVAL_MS = 200;
 
 const NO_PAYOUT = 0;
@@ -39,8 +37,6 @@ export class Arcade {
     hol: this.hol,
     mines: this.mines
   };
-
-  private heartbeat: ReturnType<typeof setInterval> | null = null;
 
   private betPublishedAt = 0;
   private betPublishTimer: ReturnType<typeof setTimeout> | null = null;
@@ -150,21 +146,6 @@ export class Arcade {
     void fetchNui("close");
   }
 
-  private startHeartbeat(machineId: string) {
-    this.stopHeartbeat();
-    void fetchNui("playReady", { machineId });
-    this.heartbeat = setInterval(
-      () => void fetchNui("playReady", { machineId }),
-      HEARTBEAT_INTERVAL_MS
-    );
-  }
-
-  private stopHeartbeat() {
-    if (this.heartbeat === null) return;
-    clearInterval(this.heartbeat);
-    this.heartbeat = null;
-  }
-
   private applySessionPayload(message: {
     game?: GameId;
     gameSettings?: GameSettingsPayload;
@@ -196,12 +177,10 @@ export class Arcade {
     this.session.mode = "play";
     this.session.visible = true;
 
-    this.startHeartbeat(message.machineId);
     this.publishBet();
   }
 
   private exitPlay() {
-    this.stopHeartbeat();
     this.stopPublish();
     this.active.reset();
     this.clearHistory();
@@ -361,7 +340,6 @@ export class Arcade {
       window.removeEventListener("keydown", onKeyDown);
       offMessage();
       this.session.onBetChange = null;
-      this.stopHeartbeat();
       this.stopPublish();
       this.admin.cleanup();
       for (const engine of Object.values(this.engines)) engine.cleanup();

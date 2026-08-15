@@ -59,7 +59,6 @@
 ---@class ArcadeLockConfig
 ---@field timeoutMs integer release a lock this long after its holder stops looking like a live session
 ---@field sweepMs integer how often the server sweeps for stale locks
----@field nuiReadyTimeoutMs integer give up if the page never confirms play mode
 ---@field maxDistance number server-side range check when claiming a cabinet
 
 ---@class ArcadeConfig
@@ -81,7 +80,6 @@
 ---@class ArcadeMachine
 ---@field id string stable identifier, the zkm_arcade_machines primary key
 ---@field game ArcadeGameId
----@field index integer unused, kept at 0 for machines loaded from the DB
 ---@field coords vector4 world position + heading
 ---@field position vector3 coords.xyz, cached for distance checks
 ---@field createdBy string display name of the admin who placed it
@@ -285,10 +283,6 @@
 ---@class ArcadeAdminCloseMessage
 ---@field action 'adminClose'
 
----@class ArcadeAdminMachinesMessage
----@field action 'adminMachines'
----@field machines ArcadeAdminMachine[]
-
 ---@class ArcadeAdminLoadingMessage
 ---@field action 'adminLoading'
 ---@field loading boolean
@@ -327,4 +321,4 @@
 ---@class ArcadeExitPlacementMessage
 ---@field action 'exitPlacement'
 
----@alias ArcadeAdminMessage ArcadeAdminOpenMessage | ArcadeAdminCloseMessage | ArcadeAdminMachinesMessage | ArcadeAdminLoadingMessage | ArcadeAdminOccupancyMessage | ArcadeEnterPlacementMessage | ArcadePlacementTransformMessage | ArcadePlacementStateMessage | ArcadeExitPlacementMessage
+---@alias ArcadeAdminMessage ArcadeAdminOpenMessage | ArcadeAdminCloseMessage | ArcadeAdminLoadingMessage | ArcadeAdminOccupancyMessage | ArcadeEnterPlacementMessage | ArcadePlacementTransformMessage | ArcadePlacementStateMessage | ArcadeExitPlacementMessage

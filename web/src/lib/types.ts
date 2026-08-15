@@ -215,7 +215,6 @@ export type NuiInbound =
   | { action: "spectateBust"; crashAt: number }
   | { action: "spectateExit" }
   | { action: "adminOpen"; machines?: Machine[]; loading?: boolean }
-  | { action: "adminMachines"; machines: Machine[] }
   | {
       action: "enterPlacement";
       mode: PlacementMode;
@@ -249,7 +248,6 @@ export interface NuiOutboundMap {
   settle: { multiplier: number };
   setStake: { bet: number };
   exitPlay: undefined;
-  playReady: { machineId: string };
   adminFetch: undefined;
   adminCreate: undefined;
   adminMove: { id: string };

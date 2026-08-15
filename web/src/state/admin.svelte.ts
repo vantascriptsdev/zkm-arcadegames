@@ -413,10 +413,6 @@ export class Admin {
       case "adminOpen":
         this.openManager(message);
         return true;
-      case "adminMachines":
-        this.machines = message.machines;
-        this.loading = false;
-        return true;
       case "enterPlacement":
         this.enterPlacement(message);
         return true;
