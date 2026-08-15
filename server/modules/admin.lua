@@ -50,7 +50,6 @@ local function registerMachine(id, game, x, y, z, heading, createdBy, createdAt)
     Registry[id] = {
         id = id,
         game = game,
-        index = 0,
         coords = vector4(x, y, z, heading),
         position = vector3(x, y, z),
         createdBy = createdBy,

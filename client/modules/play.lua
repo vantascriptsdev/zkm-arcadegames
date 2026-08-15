@@ -180,10 +180,6 @@ RegisterNuiCallback("close", function(_, cb)
     cb(1)
 end)
 
-RegisterNuiCallback("playReady", function(_, cb)
-    cb(1)
-end)
-
 RegisterNuiCallback("setStake", function(data, cb)
     local instance = current
 

@@ -97,7 +97,6 @@ Config.anim = {
 Config.lock = {
     timeoutMs = 30000, -- the server has to see the player gone from the machine for this long before it frees the machine
     sweepMs = 20000, -- how often the server goes looking for dead sessions
-    nuiReadyTimeoutMs = 8000, -- screen doesn't answer in this long, boot the player out with an error
     maxDistance = 5.0, -- you have to be this close in meters to claim a machine
 }
 
