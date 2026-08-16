@@ -6,7 +6,7 @@
 [![Stars](https://img.shields.io/github/stars/vantascriptsdev/zkm-arcadegames?label=Stars&logo=github)](https://github.com/vantascriptsdev/zkm-arcadegames/stargazers)
 [![Discord](https://img.shields.io/badge/Discord-Join-5865F2?logo=discord&logoColor=white)](https://discord.gg/t49zykYPKm)
 
-[![Framework](https://img.shields.io/badge/Framework-ESX%20%7C%20QBox-blue)](https://github.com/vantascriptsdev/zkm-arcadegames)
+[![Framework](https://img.shields.io/badge/Framework-ESX%20%7C%20QBox%20%7C%20Standalone-blue)](https://github.com/vantascriptsdev/zkm-arcadegames)
 
 [Live demo](https://arcadegames.vantascripts.dev/) · [Discord](https://discord.gg/t49zykYPKm)
 
