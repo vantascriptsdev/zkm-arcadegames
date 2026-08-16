@@ -3,7 +3,7 @@
 <div align="center">
 
 [![Release](https://img.shields.io/badge/Release-v1.0.0-orange?logo=github&logoColor=white)](https://github.com/vantascriptsdev/zkm-arcadegames/releases/tag/1.0.0)
-[![Stars](https://img.shields.io/github/stars/vantascriptsdev/zkm-arcadegames?style=flat&label=Stars&color=yellow&logo=github&logoColor=white)](https://github.com/vantascriptsdev/zkm-arcadegames/stargazers)
+[![Stars](https://img.shields.io/github/stars/vantascriptsdev/zkm-arcadegames?label=Stars&logo=github)](https://github.com/vantascriptsdev/zkm-arcadegames/stargazers)
 [![Discord](https://img.shields.io/badge/Discord-Join-5865F2?logo=discord&logoColor=white)](https://discord.gg/t49zykYPKm)
 
 [![Framework](https://img.shields.io/badge/Framework-ESX%20%7C%20QBox-blue)](https://github.com/vantascriptsdev/zkm-arcadegames)
