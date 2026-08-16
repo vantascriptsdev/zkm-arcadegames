@@ -1,10 +1,16 @@
 # zkm-arcadegames
 
+<div align="center">
+
 [![Release](https://img.shields.io/badge/Release-v1.0.0-orange?logo=github&logoColor=white)](https://github.com/vantascriptsdev/zkm-arcadegames)
 [![Stars](https://img.shields.io/badge/Stars-%E2%98%85-yellow?logo=github&logoColor=white)](https://github.com/vantascriptsdev/zkm-arcadegames)
 [![Discord](https://img.shields.io/badge/Discord-Join-5865F2?logo=discord&logoColor=white)](https://discord.gg/t49zykYPKm)
 
 [![Framework](https://img.shields.io/badge/Framework-ESX%20%7C%20QBox-blue)](https://github.com/vantascriptsdev/zkm-arcadegames)
+
+[Live demo](https://arcadegames.vantascripts.dev/) · [Discord](https://discord.gg/t49zykYPKm)
+
+</div>
 
 Four casino-style machines. Walk up to a Machine Prop, Select the option to play, and a nice UI renders straight onto its screen while the camera zooms in on it. (Based on base-position of the arcade prop)
 
