@@ -4,6 +4,7 @@ author "zykem"
 version "1.0.0"
 game "gta5"
 lua54 "yes"
+repository "https://github.com/vantascriptsdev/zkm-arcadegames/"
 
 dependencies {
     "ox_lib",
