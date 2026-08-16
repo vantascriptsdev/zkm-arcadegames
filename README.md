@@ -1,6 +1,6 @@
 # zkm-arcadegames
 
-Four casino-style machines running off one resource: Crash, Plinko, Higher or Lower, and Mines. Walk up to a cabinet, sit down, and a Svelte UI renders straight onto its screen while the camera zooms in on it. (Based on base-position of the arcade prop)
+Four casino-style machines. Walk up to a Machine Prop, Select the option to play, and a nice UI renders straight onto its screen while the camera zooms in on it. (Based on base-position of the arcade prop)
 
 ## Games
 
@@ -9,17 +9,23 @@ Four casino-style machines running off one resource: Crash, Plinko, Higher or Lo
 - **Higher or Lower** — call whether the next card beats the current one, each correct call raises the multiplier
 - **Mines** — clear tiles on a grid while dodging hidden bombs, cash out whenever you want
 
-Any of them can be turned off in the config if you only want a couple.
+*Any of them can be turned off in the config if you only want a couple.*
+
+## Preview
+
+[![Watch Now](https://img.shields.io/badge/YouTube-Watch%20Now-red?logo=youtube&logoColor=white)](https://youtu.be/GmSRJ6o59Ho)
+[![Live Preview](https://img.shields.io/badge/Live%20Preview-arcadegames.vantascripts.dev-blue?logo=googlechrome&logoColor=white)](https://arcadegames.vantascripts.dev/)
+
 
 ## Features
 
 - One house edge setting (`Config.gameSettings.houseEdge`) that every game's odds get calculated against, so tuning the cut doesn't mean re-balancing four games by hand
 - **ADMIN ONLY:** In-game /arcadeadmin placement tool for cabinets: nudge, rotate, and snap to ground with keybinds instead of typing coordinates
 - Camera zooms into the cabinet screen when you sit down, angle/zoom are all configurable
-- Players standing near an occupied machine see the stake and round update live
+- **LIVE SYNC:** Players standing near an occupied machine see the stake and round update live
 - Machines lock server-side, so alt-f4ing or relogging mid-round doesn't dodge a loss
-- Works on ESX and QBX (Qbox), auto-detects which one is running
-- Uses ox_target if it's present, falls back to a proximity prompt if not
+- Works on [ESX](https://github.com/esx-framework) and [QBOX](https://github.com/Qbox-project), auto-detects which one is running
+- Uses [ox_target](https://github.com/overextended/ox_target) if it's present, falls back to a proximity prompt if not
 
 ## Dependencies
 
@@ -39,12 +45,8 @@ Any of them can be turned off in the config if you only want a couple.
 
 ## Configuration
 
-Everything's in `config.lua` — framework, per-game bet limits and multiplier caps, the house edge, camera framing, and the admin placement sensitivity are all there with comments explaining what each value does.
+Everything's in `config.lua`, framework, per-game bet limits and multiplier caps, the house edge, camera framing, and the admin placement sensitivity are all there with comments explaining what each value does.
 
 ## Status
 
 Ready to use, with more games planned down the line.
-
-## License
-
-MIT — see [LICENSE](LICENSE).
