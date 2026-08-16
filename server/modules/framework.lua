@@ -49,8 +49,7 @@ else
     lib.print.warn("No supported framework detected, the arcade will run in standalone mode (free play, no economy).")
 end
 
-Framework.standalone = active == "none"
-
+-- will be set to the highest maxBet possible, standalone balance won't be removed anyways
 local STANDALONE_BALANCE = 0
 
 for game in pairs(Config.games) do

@@ -61,7 +61,8 @@ local function drawScreen(instance)
     local bottomRight = GetOffsetFromEntityInWorldCoords(entity, BOTTOM_RIGHT.x, BOTTOM_RIGHT.y, BOTTOM_RIGHT.z)
 
     DrawTexturedPoly(
-        bottomLeft.x, bottomLeft.y, bottomLeft.z, bottomRight.x, bottomRight.y, bottomRight.z, topLeft.x, topLeft.y, topLeft.z,
+        bottomLeft.x, bottomLeft.y, bottomLeft.z, bottomRight.x, bottomRight.y, bottomRight.z, topLeft.x, topLeft.y,
+        topLeft.z,
         255, 255, 255, 255, txd, "screen",
         0.0, 1.0, 0.0,
         1.0, 1.0, 0.0,
@@ -279,22 +280,6 @@ function Machines.isOccupied(machineId)
     return instance ~= nil and instance.occupied
 end
 
-function Machines.nearest(coords)
-    local from = coords or GetEntityCoords(cache.ped)
-    local closest, closestDistance
-
-    for i = 1, #Ordered do
-        local instance = Ordered[i]
-        local distance = #(from - instance.position)
-
-        if not closestDistance or distance < closestDistance then
-            closest, closestDistance = instance, distance
-        end
-    end
-
-    return closest, closestDistance or math.huge
-end
-
 ---@param machine { id: string, game: ArcadeGameId, coords: vector4, position: vector3 }
 function Machines.define(machine)
     local id = machine.id
@@ -317,7 +302,7 @@ function Machines.define(machine)
     StreamPoints[id] = point
 end
 
-function Machines.init()
+Citizen.CreateThread(function()
     AddStateBagChangeHandler(nil, "global", function(_, key, value)
         if key:sub(1, PREFIX_LENGTH) ~= BUSY_PREFIX then return end
 
@@ -333,7 +318,7 @@ function Machines.init()
     end)
 
     startDrawLoop()
-end
+end)
 
 function Machines.cleanup()
     for _, point in pairs(StreamPoints) do
