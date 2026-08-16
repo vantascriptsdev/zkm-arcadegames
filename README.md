@@ -14,6 +14,9 @@
 
 Four casino-style machines. Walk up to a Machine Prop, Select the option to play, and a nice UI renders straight onto its screen while the camera zooms in on it. (Based on base-position of the arcade prop)
 
+> [!IMPORTANT]
+> **TOS-friendly.** Bets and payouts only ever move in-game currency, whatever account `Config.account` points at (ESX bank/cash, QBox cash). There's no real-money purchase path anywhere in the resource, so it doesn't touch Rockstar's real-money-gambling rules.
+
 ## Games
 
 - **Crash** — a multiplier climbs every tick, cash out before it busts
